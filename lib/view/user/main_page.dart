@@ -15,7 +15,9 @@ class _MainPageState extends State<MainPage> {
   //ボタンが押されたかどうか
   bool _goalisPressed = false;
   // 色を変える変数
-  bool _isColor = false;
+  bool _startisColor = false;
+  // 色を変える変数
+  bool _goalisColor = false;
   // ボタンの名前を変える変数
   int snum = 0;
   // ボタンの名前を変える変数
@@ -123,9 +125,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: IconButton(
           iconSize: 40,
-          icon: ImageIcon(AssetImage('images/tag/return.png')),
+          icon: ImageIcon(
+            AssetImage('images/tag/return.png'),
+            color: Colors.black,
+          ),
           onPressed: () {
             Navigator.push(
               context,
@@ -136,7 +142,10 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             iconSize: 40,
-            icon: ImageIcon(AssetImage('images/tag/help.png')),
+            icon: ImageIcon(
+              AssetImage('images/tag/help.png'),
+              color: Colors.black,
+            ),
             //TODO:押したときの処理追加
             onPressed: () {},
           )
@@ -179,20 +188,24 @@ class _MainPageState extends State<MainPage> {
                       style: TextStyle(color: Colors.black),
                     ),
                     style: ElevatedButton.styleFrom(
-                        elevation: 10,
-                        primary: _isColor
-                            ? Color.fromRGBO(206, 255, 161, 1)
-                            : Colors.white,
-                        onPrimary: Colors.black,
-                        fixedSize: Size(115, 40),
-                        side: const BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(83, 137, 107, 1),
-                        )),
+                      elevation: 10,
+                      primary: _startisColor && sval == 0
+                          ? Color.fromRGBO(206, 255, 161, 1)
+                          : Colors.white,
+                      onPrimary: Colors.black,
+                      fixedSize: Size(115, 40),
+                      side: const BorderSide(
+                        width: 2,
+                        color: Color.fromRGBO(83, 137, 107, 1),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                     onPressed: () {
                       setState(() {
                         _startisPressed = true;
-                        _isColor = true;
+                        _startisColor = true;
                         sval = 0;
                       });
                     },
@@ -207,20 +220,24 @@ class _MainPageState extends State<MainPage> {
                       style: TextStyle(color: Colors.black),
                     ),
                     style: ElevatedButton.styleFrom(
-                        elevation: 10,
-                        primary: _isColor
-                            ? Color.fromRGBO(206, 255, 161, 1)
-                            : Colors.white,
-                        onPrimary: Colors.black,
-                        fixedSize: Size(115, 40),
-                        side: const BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(83, 137, 107, 1),
-                        )),
+                      elevation: 10,
+                      primary: _startisColor && sval == 1
+                          ? Color.fromRGBO(206, 255, 161, 1)
+                          : Colors.white,
+                      onPrimary: Colors.black,
+                      fixedSize: Size(115, 40),
+                      side: const BorderSide(
+                        width: 2,
+                        color: Color.fromRGBO(83, 137, 107, 1),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                     onPressed: () {
                       setState(() {
                         _startisPressed = true;
-                        _isColor = true;
+                        _startisColor = true;
                         sval = 1;
                       });
                     },
@@ -235,20 +252,24 @@ class _MainPageState extends State<MainPage> {
                       style: TextStyle(color: Colors.black),
                     ),
                     style: ElevatedButton.styleFrom(
-                        elevation: 10,
-                        primary: _isColor
-                            ? Color.fromRGBO(206, 255, 161, 1)
-                            : Colors.white,
-                        onPrimary: Colors.black,
-                        fixedSize: Size(115, 40),
-                        side: const BorderSide(
-                          width: 2,
-                          color: Color.fromRGBO(83, 137, 107, 1),
-                        )),
+                      elevation: 10,
+                      primary: _startisColor && sval == 2
+                          ? Color.fromRGBO(206, 255, 161, 1)
+                          : Colors.white,
+                      onPrimary: Colors.black,
+                      fixedSize: Size(115, 40),
+                      side: const BorderSide(
+                        width: 2,
+                        color: Color.fromRGBO(83, 137, 107, 1),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                     onPressed: () {
                       setState(() {
                         _startisPressed = true;
-                        _isColor = true;
+                        _startisColor = true;
                         sval = 2;
                       });
                     },
@@ -265,12 +286,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][0]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][0],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -283,12 +315,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][1]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][1],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -301,12 +344,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][2]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][2],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -317,16 +371,30 @@ class _MainPageState extends State<MainPage> {
                           },
                         ),
                       ]),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Row(children: [
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][3]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][3],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -339,12 +407,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][4]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][4],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -357,12 +436,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(start[sval][5]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            start[sval][5],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -396,6 +486,9 @@ class _MainPageState extends State<MainPage> {
               border: Border(bottom: BorderSide(width: 2)),
             ),
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Stack(
             children: [
               Container(
@@ -417,20 +510,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 0
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 0;
                           });
                         },
@@ -445,20 +542,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 1
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 1;
                           });
                         },
@@ -473,20 +574,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 2
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 2;
                           });
                         },
@@ -509,20 +614,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 3
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 3;
                           });
                         },
@@ -537,20 +646,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 4
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 4;
                           });
                         },
@@ -565,20 +678,24 @@ class _MainPageState extends State<MainPage> {
                           style: TextStyle(color: Colors.black),
                         ),
                         style: ElevatedButton.styleFrom(
-                            elevation: 10,
-                            primary: _isColor
-                                ? Color.fromRGBO(206, 255, 161, 1)
-                                : Colors.white,
-                            onPrimary: Colors.black,
-                            fixedSize: Size(115, 40),
-                            side: const BorderSide(
-                              width: 2,
-                              color: Color.fromRGBO(83, 137, 107, 1),
-                            )),
+                          elevation: 10,
+                          primary: _goalisColor && gval == 5
+                              ? Color.fromRGBO(206, 255, 161, 1)
+                              : Colors.white,
+                          onPrimary: Colors.black,
+                          fixedSize: Size(115, 40),
+                          side: const BorderSide(
+                            width: 2,
+                            color: Color.fromRGBO(83, 137, 107, 1),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
                         onPressed: () {
                           setState(() {
                             _goalisPressed = true;
-                            _isColor = true;
+                            _goalisColor = true;
                             gval = 5;
                           });
                         },
@@ -593,16 +710,30 @@ class _MainPageState extends State<MainPage> {
                   color: Colors.white,
                   child: Column(
                     children: [
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Row(children: [
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][0]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][0],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -615,12 +746,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][1]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][1],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -633,12 +775,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][2]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][2],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -649,16 +802,30 @@ class _MainPageState extends State<MainPage> {
                           },
                         ),
                       ]),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Row(children: [
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][3]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][3],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -671,12 +838,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][4]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][4],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
@@ -689,12 +867,23 @@ class _MainPageState extends State<MainPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        OutlinedButton(
-                          child: Text(goal[gval][5]),
-                          style: OutlinedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: const StadiumBorder(),
+                        ElevatedButton(
+                          child: Text(
+                            goal[gval][5],
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 10,
+                            primary: Colors.white,
+                            onPrimary: Colors.black,
                             fixedSize: Size(115, 40),
+                            side: const BorderSide(
+                              width: 2,
+                              color: Color.fromRGBO(83, 137, 107, 1),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
                           ),
                           onPressed: () {
                             setState(() {
