@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navi_station/view/user/main_page.dart';
+import 'package:navi_station/view/admin/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,14 +32,28 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          child: Text('mainpage'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MainPage()),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: Text('mainpage'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainPage()),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('adminpage'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AdminPage()),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
