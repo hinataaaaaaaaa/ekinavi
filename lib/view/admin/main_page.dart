@@ -34,35 +34,35 @@ class _AdminPageState extends State<AdminPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyApp()),
-            );
-          },
-          // 表示アイコン
-          icon: Image.asset('images/tag/return.png'),
-          // サイズ
-          iconSize: 46,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
-            icon: Image.asset('images/tag/help.png'),
-          ),
-        ],
-        // backgroundColor: Color.fromRGBO(248, 255, 245, 1),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        // title: Text(widget.title!),
-      ),
+      // appBar: AppBar(
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => MyApp()),
+      //       );
+      //     },
+      //     // 表示アイコン
+      //     icon: Image.asset('images/tag/return.png'),
+      //     // サイズ
+      //     iconSize: 46,
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => Login()),
+      //         );
+      //       },
+      //       icon: Image.asset('images/tag/help.png'),
+      //     ),
+      //   ],
+      //   // backgroundColor: Color.fromRGBO(248, 255, 245, 1),
+      //   backgroundColor: Colors.white,
+      //   elevation: 0,
+      //   // title: Text(widget.title!),
+      // ),
       body: TabBarView(
         physics:
             NeverScrollableScrollPhysics(), // swipe navigation handling is not supported
@@ -70,7 +70,7 @@ class _AdminPageState extends State<AdminPage> with TickerProviderStateMixin {
         // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
           Center(child: Text("Home")),
-          const Center(child: videoSelect()),
+          const Center(child: VideoSelect()),
         ],
       ),
       bottomNavigationBar: MotionTabBar(
