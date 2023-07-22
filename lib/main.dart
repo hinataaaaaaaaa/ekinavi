@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:navi_station/view/admin/login.dart';
 import 'package:navi_station/view/user/main_page.dart';
-import 'package:navi_station/view/admin/main_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AdminPage()),
+                  MaterialPageRoute(builder: (context) => Login()),
                 );
               },
             ),
