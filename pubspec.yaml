@@ -38,6 +38,7 @@ dependencies:
   intl: ^0.18.1
   image_picker: ^1.0.1
   video_player: ^2.7.0
+  motion_tab_bar_v2: ^0.3.0
   # firebase
   firebase_core: ^2.15.0
   firebase_database: ^10.2.3

@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:navi_station/view/user/main_page.dart';
-import 'package:navi_station/view/admin/select_video.dart';
+import 'package:navi_station/view/admin/select_video_abort.dart';
 
-void main() {
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -11,9 +20,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -34,26 +43,27 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              child: Text('mainpage'),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainPage()),
+                  MaterialPageRoute(
+                    builder: (context) => const VideoView(),
+                  ),
                 );
               },
-              
+              child: const Text('動画選択'),
             ),
             ElevatedButton(
+              child: const Text('UserPage'),
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const VideoView(),
-                    ));
+                  context,
+                  MaterialPageRoute(builder: (context) => UserPage(root: '',)),
+                );
               },
-              child: const Text('動画選択'),
             ),
           ],
         ),
