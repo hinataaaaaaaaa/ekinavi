@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:navi_station/view/admin/main_page.dart';
+import 'package:navi_station/view/user/main_page.dart';
 
 class SelectStation extends StatefulWidget {
+  const SelectStation({super.key});
+
   @override
   _SelectStationState createState() => _SelectStationState();
 }
 
 class _SelectStationState extends State<SelectStation> {
+
   bool _showButtons1 = false;
   bool _showButtons2 = false;
 
@@ -46,7 +49,7 @@ class _SelectStationState extends State<SelectStation> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: ElevatedButton.icon(
                         icon: ImageIcon(
-                          AssetImage('images/japan.png'),
+                          AssetImage('images/tag/japan.png'),
                           size: 50,
                         ),
                         label: Text(
@@ -108,7 +111,7 @@ class _SelectStationState extends State<SelectStation> {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                       child: ElevatedButton.icon(
                         icon: ImageIcon(
-                          AssetImage('images/train.png'),
+                          AssetImage('images/tag/train.png'),
                           size: 50,
                         ),
                         label: Text(
@@ -163,7 +166,7 @@ class _SelectStationState extends State<SelectStation> {
                       //遷移先
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AdminPage()),
+                        MaterialPageRoute(builder: (context) => MainPage()),
                       );
                     }
                   : null,
