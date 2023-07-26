@@ -58,7 +58,7 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
   // シークバーの値が変更された時の処理
   void _onSliderChanged(double value) {
     setState(() {
-      _currentSliderValue = value;
+      _currentSliderValue = value.clamp(0.0, _videoController.value.duration.inMilliseconds.toDouble());
     });
   }
 
@@ -73,7 +73,7 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Color.fromRGBO(56, 56, 56, 1),
+      backgroundColor: Color.fromRGBO(56, 56, 56, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(56, 56, 56, 1),
         title: Text("戻る"),
@@ -84,8 +84,7 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
           },
         ),
       ),
-      body: 
-      Center(
+      body: Center(
         child: Column(
           children: [
             AspectRatio(
@@ -118,7 +117,7 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
                     _videoController.play();
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 // 動画の一時停止ボタン
@@ -128,7 +127,7 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
                     _videoController.pause();
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 // 動画の再生速度を変更するボタン
@@ -138,19 +137,19 @@ class _VideoPlayerFullScreenState extends State<VideoPlayerFullScreen> {
                   },
                   icon: Icon(Icons.speed,color: Colors.white,size: 35),
                   itemBuilder: (BuildContext context) => [
-                    PopupMenuItem<double>(
+                    const PopupMenuItem<double>(
                       value: 0.5,
                       child: Text('0.5x'),
                     ),
-                    PopupMenuItem<double>(
+                    const PopupMenuItem<double>(
                       value: 1.0,
                       child: Text('1.0x'),
                     ),
-                    PopupMenuItem<double>(
+                    const PopupMenuItem<double>(
                       value: 1.5,
                       child: Text('1.5x'),
                     ),
-                    PopupMenuItem<double>(
+                    const PopupMenuItem<double>(
                       value: 2.0,
                       child: Text('2.0x'),
                     ),
