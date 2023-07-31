@@ -58,7 +58,7 @@ class _UserTagWidgetState extends State<UserTagWidget> {
 
 // 出発地点の名前を取得
   Future<void> _fetchStartNames() async {
-    List<String> names = await tags.StartName();
+    List<String> names = await tags.StartNameTitle();
     setState(() {
       startName = names;
       tmpStartName = List.from(startName);
@@ -67,7 +67,7 @@ class _UserTagWidgetState extends State<UserTagWidget> {
 
 // 出発地点の詳細を取得
   Future<void> _fetchStartInfo() async {
-    Map<String, dynamic> names = await tags.StartNames();
+    Map<String, dynamic> names = await tags.StartNameInfo();
     setState(() {
       startNames = names;
     });
@@ -147,6 +147,7 @@ class _UserTagWidgetState extends State<UserTagWidget> {
                                     sendCheckedList['出発'] = true;
                                     startName = List.from(
                                         tmpStartName); // tmpStartNameをstartNameにコピー(再表示用)
+                                    print('wwwwwwwww${goalName[gval!]}');
                                   }
                                 });
                               },
@@ -239,7 +240,9 @@ class _UserTagWidgetState extends State<UserTagWidget> {
                                         sendCheckedList['到着'] == true) {
                                       setState(() {
                                         n = '${startName[sval!]}~${goalName[gval!]}';
+                                        print('wwwwwwwww${goalName[gval!]}');
                                       });
+                                      sendCheckedList['出発'] = false;
                                     }
                                   });
                                 },
@@ -308,7 +311,8 @@ class _UserTagWidgetState extends State<UserTagWidget> {
                                       gval = i; // ボタンの名前を変える変数
                                       sendCheckedList['到着'] = true;
                                       goalName = List.from(
-                                          tmpGoalName); // tmpStartNameをstartNameにコピー(再表示用)
+                                          tmpGoalName); // tmpStartNameをstartNameにコピー
+                                      print('wwwwwwwww${goalName[gval!]}');
                                     }
                                   });
                                 },
@@ -392,6 +396,7 @@ class _UserTagWidgetState extends State<UserTagWidget> {
                                   setState(() {
                                     _goalisPressed = false; // ボタンが押されたかどうか
                                     goalName[gval!] = key; // ボタンの名前を変える変数
+                                    print('wwwwwwwww${goalName[gval!]}');
                                     if (sendCheckedList['出発'] == true &&
                                         sendCheckedList['到着'] == true) {
                                       setState(() {
@@ -399,6 +404,7 @@ class _UserTagWidgetState extends State<UserTagWidget> {
                                             '~' +
                                             goalName[gval!];
                                       });
+                                      sendCheckedList['出発'] = false;
                                     }
                                   });
                                 },

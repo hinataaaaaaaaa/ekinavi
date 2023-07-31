@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navi_station/view/user/main_page.dart';
 import 'package:navi_station/view/admin/select_video_abort.dart';
+import 'package:navi_station/view/user/select_station.page.dart';
 
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -37,37 +38,47 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  @override
+@override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const VideoView(),
-                  ),
-                );
-              },
-              child: const Text('動画選択'),
-            ),
-            ElevatedButton(
-              child: const Text('UserPage'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => UserPage(root: '',)),
-                );
-              },
-            ),
-          ],
-        ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: '駅ナビ',
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
       ),
+      home: SelectStation(),
     );
   }
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     body: Center(
+  //       child: Column(
+  //         mainAxisAlignment: MainAxisAlignment.center,
+  //         children: [
+  //           ElevatedButton(
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => const VideoView(),
+  //                 ),
+  //               );
+  //             },
+  //             child: const Text('動画選択'),
+  //           ),
+  //           ElevatedButton(
+  //             child: const Text('UserPage'),
+  //             onPressed: () {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(builder: (context) => UserPage(root: '',)),
+  //               );
+  //             },
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }

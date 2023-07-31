@@ -14,9 +14,12 @@ Future MoveAdd(String start, String end, String method, String videoTitle,
 
   String? stationId = '$start~$end';
 
+final Map<String, String> customMetadata = {
+    'title': method,
+  };
   await stationsRef
       .child('$stationId/$method.MOV')
-      .putFile(File(videoPath));
+      .putFile(File(videoPath), SettableMetadata(customMetadata: customMetadata));
 
   print('追加済み'); // 確認用
 
