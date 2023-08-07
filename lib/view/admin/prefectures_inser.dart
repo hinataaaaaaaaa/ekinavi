@@ -42,24 +42,24 @@ class ChatEntry {
   }
 }
 
-Future station() async {
+// Future station() async {
 
-  try {
-    DocumentSnapshot snapshot = await FirebaseFirestore.instance
-        .collection('guide')
-        .doc('大阪府')
-        .collection('大阪駅')
-        .doc('出発')
-        .get();
+//   try {
+//     DocumentSnapshot snapshot = await FirebaseFirestore.instance
+//         .collection('guide')
+//         .doc('大阪府')
+//         .collection('大阪駅')
+//         .doc('出発')
+//         .get();
 
-    if (snapshot.exists) {
-      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-      data.forEach((key, value) {
-      });
-    } else {
-      print('ドキュメントが存在しません');
-    }
-  } catch (e) {
-    print('エラー：$e');
-  }
-}
+//     if (snapshot.exists) {
+//       Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+//       data.forEach((key, value) {
+//       });
+//     } else {
+//       print('ドキュメントが存在しません');
+//     }
+//   } catch (e) {
+//     print('エラー：$e');
+//   }
+// }

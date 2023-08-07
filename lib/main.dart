@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:navi_station/view/user/main_page.dart';
 import 'package:navi_station/view/admin/select_video_abort.dart';
-import 'package:navi_station/view/user/select_station.page.dart';
+import 'package:navi_station/view/user/select_station_page.dart';
 
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
